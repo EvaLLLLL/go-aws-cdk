@@ -26,7 +26,8 @@ func NewGoAwsCdkStack(scope constructs.Construct, id string, props *GoAwsCdkStac
 			Name: jsii.String("username"),
 			Type: awsdynamodb.AttributeType_STRING,
 		},
-		TableName: jsii.String("userTable"),
+		RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
+		TableName:     jsii.String("userTable"),
 	})
 
 	myFunction := awslambda.NewFunction(stack, jsii.String("myLambdaFunction"), &awslambda.FunctionProps{
